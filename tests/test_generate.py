@@ -165,6 +165,7 @@ data_type_columns = [
 
 supported_columns = data_type_columns + supported_columns_by_language
 
+
 @pytest.mark.parametrize("""columns, lang, expected_d_type""", supported_columns)
 def test_generate_lazyframe(columns: List, lang: str, expected_d_type: str):
     schema = {
