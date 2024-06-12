@@ -18,7 +18,7 @@ df = (
         {
             "clicks": pl.UInt8,
             "Name": "name",
-            "Email": "safe_email",
+            "City Name": "city_name",
             "Phone": "mobile_number",
         },
         rows,
@@ -28,26 +28,24 @@ df = (
 print(df)
 ```
 ```python
-shape: (5_000, 4)
-┌────────┬──────────────────┬───────────────────────┬────────────────┐
-│ clicks ┆ Name             ┆ Email                 ┆ Phone          │
-│ ---    ┆ ---              ┆ ---                   ┆ ---            │
-│ u8     ┆ str              ┆ str                   ┆ str            │
-╞════════╪══════════════════╪═══════════════════════╪════════════════╡
-│ 30     ┆ Pete Considine   ┆ hilton@example.org    ┆ 637-852-1570   │
-│ 250    ┆ Berta Jones      ┆ billie@example.com    ┆ (103) 305-9278 │
-│ 241    ┆ Bennett Nikolaus ┆ deontae@example.com   ┆ 113-777-7758   │
-│ 206    ┆ Raymundo Roob    ┆ lavern@example.com    ┆ (786) 626-8033 │
-│ 227    ┆ Alysha Larkin    ┆ margarita@example.net ┆ 172-282-6779   │
-│ …      ┆ …                ┆ …                     ┆ …              │
-│ 180    ┆ Eduardo Zboncak  ┆ sadye@example.com     ┆ 943-778-2835   │
-│ 236    ┆ Camylle Conroy   ┆ connor@example.org    ┆ 131-634-2874   │
-│ 51     ┆ Simone Gulgowski ┆ sydni@example.org     ┆ 1-346-844-6742 │
-│ 30     ┆ Letitia Berge    ┆ jeffrey@example.net   ┆ 1-802-687-1114 │
-│ 161    ┆ Anastacio Marks  ┆ eleanore@example.com  ┆ 1-276-014-3580 │
-└────────┴──────────────────┴───────────────────────┴────────────────┘
+┌────────┬──────────────────┬──────────────────────────┬────────────────┐
+│ clicks ┆ Name             ┆ City Name                ┆ Phone          │
+│ ---    ┆ ---              ┆ ---                      ┆ ---            │
+│ u8     ┆ str              ┆ str                      ┆ str            │
+╞════════╪══════════════════╪══════════════════════════╪════════════════╡
+│ 207    ┆ Erik Conn        ┆ Beier stad               ┆ 512-797-9451   │
+│ 66     ┆ Hildegard Murphy ┆ Wintheiser bury          ┆ (907) 011-3125 │
+│ 38     ┆ Tremayne Casper  ┆ Okuneva land             ┆ 933.955.5987   │
+│ 157    ┆ Kamille Haley    ┆ McGlynn furt             ┆ 329.524.7080   │
+│ 123    ┆ Erika Kozey      ┆ East Favian Fisher burgh ┆ 1-846-364-8772 │
+│ …      ┆ …                ┆ …                        ┆ …              │
+│ 25     ┆ Chadd Rosenbaum  ┆ Nader furt               ┆ 201-837-7966   │
+│ 50     ┆ Tevin Jerde      ┆ Davis shire              ┆ 1-125-407-6570 │
+│ 22     ┆ Antwan Jones     ┆ West Sammie Hirthe shire ┆ 365-256-8860   │
+│ 120    ┆ Eden McCullough  ┆ Goldner shire            ┆ 1-950-582-2326 │
+│ 76     ┆ Tevin Batz       ┆ Bauch mouth              ┆ 560-202-3844   │
+└────────┴──────────────────┴──────────────────────────┴────────────────┘
 ```
-On a laptop with 16GB of RAM and 8 cores, this generates in under half a second.
 
 ## Docs
 The `faux_lars` python API is deliberately small and lightweight.
@@ -140,3 +138,9 @@ Locales:
 * `pt_br`: Brazilian Portugese
 * `zh_tw`: Traditional Chinese
 * `zh_cn`: Simplified Chinese
+
+
+## Benchmarks
+* On a laptop with 16GB of RAM and 8 cores, 5,000 rows with 1 utf8 column and three string columns generates in under 0.25 seconds.
+* 1,000,000 rows generates in under 7. 
+* Take a look at `benchmarks` for  comparison with two popular python fake data generation libraries: `mimesis` and `faker`.
