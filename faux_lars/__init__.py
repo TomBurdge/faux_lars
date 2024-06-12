@@ -42,7 +42,6 @@ data_types_to_str = {
     pl.Binary: "binary",
 }
 
-
 def generate_lazyframe(schema: dict, length: int, language: str = "en") -> pl.LazyFrame:
     data = {name: [] for (name, _) in schema.items()}
     lf = pl.LazyFrame(data=data)
