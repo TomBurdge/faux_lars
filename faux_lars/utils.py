@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from typing import TYPE_CHECKING, Sequence, Any
+from typing import TYPE_CHECKING, Sequence, Any, Union
 
 import polars as pl
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 
 def parse_into_expr(
-    expr: IntoExpr,
+    expr: Union[IntoExpr, str],
     *,
     str_as_lit: bool = False,
     list_as_lit: bool = True,

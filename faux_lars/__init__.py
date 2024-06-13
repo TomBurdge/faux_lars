@@ -17,9 +17,9 @@ else:
 def generate_data(
     expr: str, length: int, data_type: str, language: str = "en"
 ) -> pl.Expr:
-    expr = parse_into_expr(expr)
+    expression = parse_into_expr(expr)
     return register_plugin(
-        args=[expr],
+        args=[expression],
         symbol="generate_data",
         is_elementwise=True,
         changes_length=True,
@@ -44,7 +44,7 @@ data_types_to_str = {
 
 
 def generate_lazyframe(schema: dict, length: int, language: str = "en") -> pl.LazyFrame:
-    data = {name: [] for (name, _) in schema.items()}
+    data: dict = {name: [] for (name, _) in schema.items()}
     lf = pl.LazyFrame(data=data)
     lf = lf.select(
         *[
